@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    h1 {
+      color: #ff1493;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #ff1493;
+      color: white;
+      border-radius: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>Will You Be My Valentine?</h1>
+
+  <button id="yesButton" onclick="checkResponse('Yes')">Yes</button>
+  <button onclick="checkResponse('No')">No</button>
+
+  <script>
+    function checkResponse(response) {
+      if (response === 'Yes') {
+        alert("Thank you for saying yes! But let's keep it casual for now. Will you be my Valentine?");
+      } else if (response === 'No') {
+        alert("That's okay. Let's try again. Will you be my Valentine?");
+        enlargeYesButton();
+      }
+    }
+
+    function enlargeYesButton() {
+      var yesButton = document.getElementById('yesButton');
+      var currentSize = window.getComputedStyle(yesButton).fontSize;
+      var newSize = parseInt(currentSize) + 50;
+      yesButton.style.fontSize = newSize + 'px';
+    }
+  </script>
+</body>
+</html>
