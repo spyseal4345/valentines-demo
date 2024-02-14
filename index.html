@@ -31,17 +31,30 @@
 <body>
   <h1>Will You Be My Valentine?</h1>
 
-  <button id="yesButton" onclick="checkResponse('Yes')">Yes</button>
-  <button onclick="checkResponse('No')">No</button>
+  <button id="yesButton" onclick="moveToThanksPage()">Yes</button>
+  <button id="noButton" onclick="checkResponse('No')">No</button>
 
   <script>
     function checkResponse(response) {
       if (response === 'Yes') {
-        alert("Thank you for saying yes! But let's keep it casual for now. Will you be my Valentine?");
+        window.location.href = "thanks.html"; // Redirect to the thanks page
       } else if (response === 'No') {
-        alert("That's okay. Let's try again. Will you be my Valentine?");
+        var quotes = [
+          "No worries, love is always in the air.",
+          "That's okay. There are plenty of heart-shaped chocolates in the world.",
+          "Don't worry, I'll still be your secret admirer.",
+          "No today, maybe tomorrow. Love is patient, right?",
+          "Love is like a puzzle. Sometimes it takes a while to find the right piece."
+        ];
+        var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('noButton').innerHTML = "No (" + randomQuote + ")";
         enlargeYesButton();
       }
+    }
+
+    function moveToThanksPage() {
+      alert("Thank you for saying yes! But let's keep it casual for now. Will you be my Valentine?");
+      window.location.href = "thanks.html"; // Redirect to the thanks page
     }
 
     function enlargeYesButton() {
